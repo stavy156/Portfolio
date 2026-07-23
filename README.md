@@ -28,12 +28,12 @@ This starts the marketplace application and monitoring system on:
 ```
 http://localhost:8080
 ```
-
+| `/swagger-ui.html` | Interactive API documentation |
 ---
 
 ## Step 2: Start the ML Service
 
-Open another terminal:
+Open another terminal: (start following if done once)
 
 ```bash
 cd ml-service
@@ -47,6 +47,16 @@ This starts the ML inference service on:
 http://localhost:8000
 ```
 
+If running for the first time, run on:
+```
+cd /Users/rahpande/Proj/Dummy/ml-service
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+
 ---
 
 ## Step 3: Generate Traffic (Optional but Recommended)
@@ -58,6 +68,16 @@ k6 run test.js
 ```
 
 This simulates user traffic by continuously calling the marketplace APIs.
+the startup order
+
+Right after the introduction, add:
+
+```md
+**Start the services in this order:**
+
+1. Spring Boot
+2. ML Service
+3. k6 (optional)
 
 ---
 
